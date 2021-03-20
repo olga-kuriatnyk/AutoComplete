@@ -1,0 +1,11 @@
+10
+    10	hello
+    20	help
+    3	heal
+    5	herd
+    7	hertz
+    20	look
+    30	like
+    2	lerp
+    10	lemon
+    6	lease

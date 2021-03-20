@@ -1,0 +1,349 @@
+Mon Jan 25 22:19:02 PST 2021
+Linux csslab10.uwb.edu 3.10.0-1160.11.1.el7.x86_64 #1 SMP Fri Dec 18 16:34:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+uid=1116148(olhak) gid=2121116148(olhak) groups=2121116148(olhak),605559(lab-access)
+=====================================================
+1. Compiles without warnings with -Wall -Wextra flags
+=====================================================
+=====================================================
+2. Runs and produces correct output
+=====================================================
+Starting test01
+* Testing ==, != and []
+        [world=42]
+    [hello=5]
+        [alloha=100]
+
+        [world=42]
+    [hello=5]
+        [alloha=100]
+
+Ending tes01
+Starting test02
+* Testing traversal
+        [z=50]
+    [x=10]
+        [f=5]
+                [e=4]
+            [b=3]
+
+Ending test02
+Starting test03
+* Testing rebalance
+                        [6=6]
+                    [5=5]
+                [4=4]
+            [3=3]
+        [2=2]
+    [1=1]
+
+
+            [6=6]
+        [5=5]
+            [4=4]
+    [3=3]
+            [2=2]
+        [1=1]
+
+
+Ending test03
+Starting test04
+* Testing size, contains and count
+        [z=15]
+    [x=10]
+        [f=5]
+            [b=3]
+
+
+Ending test04
+Starting test05
+* Testing getAll()
+                [look=20]
+                    [like=30]
+                        [lerp=2]
+                            [lease=6]
+            [hertz=7]
+        [help=20]
+    [hello=10]
+
+
+            [look=20]
+        [like=30]
+            [lerp=2]
+    [lease=6]
+            [hertz=7]
+        [help=20]
+            [hello=10]
+
+
+Ending test05
+Starting test06
+* Testing BSTMap(const vector<value_type> &v)
+        [help=20]
+    [hello=10]
+
+
+Ending test06
+Starting test07
+* Testing erase function
+                [t=3]
+            [s=2]
+                [r=3]
+        [p=1]
+            [m=2]
+    [l=0]
+            [h=2]
+        [a=1]
+
+
+                [t=3]
+            [s=2]
+        [r=3]
+            [m=2]
+    [l=0]
+            [h=2]
+        [a=1]
+
+
+            [t=3]
+        [r=3]
+            [m=2]
+    [l=0]
+        [h=2]
+
+
+Ending test07
+Starting test08
+* Testing Copy constructor
+        [world=42]
+    [hello=5]
+        [alloha=100]
+
+
+        [world=42]
+    [hello=5]
+        [alloha=1]
+
+
+Ending test08
+Starting AC test01
+* Testing basic autocomplete
+Ending tesAC01
+Starting AC test02
+* Testing cities autocomplete
+Ending tesAC02
+Starting AC test03
+* Testing wiktionary autocomplete
+Ending tesAC03
+Starting AC test04
+* Testing cities autocomplete
+Ending tesAC04
+=====================================================
+3. clang-tidy warnings are fixed
+=====================================================
+=====================================================
+4. clang-format does not find any formatting issues
+=====================================================
+Running clang-format on ./autocomplete.cpp
+Running clang-format on ./bstmap.cpp
+Running clang-format on ./bstmapprinter.cpp
+Running clang-format on ./main.cpp
+Running clang-format on ./testac.cpp
+Running clang-format on ./testbst.cpp
+=====================================================
+5. No memory leaks using g++
+=====================================================
+=====================================================
+6. No memory leaks using valgrind, look for "definitely lost" 
+=====================================================
+==20215== Memcheck, a memory error detector
+==20215== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20215== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==20215== Command: ./a.out
+==20215== Parent PID: 19646
+==20215== 
+==20215== 
+==20215== HEAP SUMMARY:
+==20215==     in use at exit: 0 bytes in 0 blocks
+==20215==   total heap usage: 1,143,952 allocs, 1,143,952 frees, 66,672,984 bytes allocated
+==20215== 
+==20215== All heap blocks were freed -- no leaks are possible
+==20215== 
+==20215== For lists of detected and suppressed errors, rerun with: -s
+==20215== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+=====================================================
+7. Tests have full code coverage
+=====================================================
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/autocomplete.cpp':
+Name                                                                                                         Regions    Miss   Cover     Lines    Miss   Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Autocomplete::readFile(std::string const&)                                                                         4       0 100.00%        19       0 100.00%
+Autocomplete::sortByWeight(std::pair<std::string, unsigned long>&, std::pair<std::string, unsigned long>&)         1       0 100.00%         3       0 100.00%
+Autocomplete::complete(std::string const&) const                                                                   1       0 100.00%         5       0 100.00%
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                              6       0 100.00%        27       0 100.00%
+
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/bstmap.cpp':
+Name                                                                                                                                                                          Regions    Miss   Cover     Lines    Miss   Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BSTMap::BSTMap()                                                                                                                                                                    1       0 100.00%         1       0 100.00%
+BSTMap::BSTMap(BSTMap const&)                                                                                                                                                       1       0 100.00%         1       0 100.00%
+BSTMap::BSTMap(std::vector<std::pair<std::string, unsigned long>, std::allocator<std::pair<std::string, unsigned long> > > const&)                                                  1       0 100.00%         5       0 100.00%
+BSTMap::~BSTMap()                                                                                                                                                                   1       0 100.00%         1       0 100.00%
+BSTMap::empty() const                                                                                                                                                               1       0 100.00%         1       0 100.00%
+BSTMap::size() const                                                                                                                                                                1       0 100.00%         1       0 100.00%
+BSTMap::height() const                                                                                                                                                              1       0 100.00%         1       0 100.00%
+BSTMap::clear()                                                                                                                                                                     4       0 100.00%         7       0 100.00%
+BSTMap::contains(std::string const&) const                                                                                                                                          1       0 100.00%         3       0 100.00%
+BSTMap::count(std::string const&) const                                                                                                                                             4       0 100.00%         6       0 100.00%
+BSTMap::operator[](std::string const&)                                                                                                                                              4       0 100.00%         8       0 100.00%
+BSTMap::inorder(void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                                       1       0 100.00%         3       0 100.00%
+BSTMap::preorder(void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                                      1       0 100.00%         3       0 100.00%
+BSTMap::postorder(void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                                     1       0 100.00%         3       0 100.00%
+BSTMap::rebalance()                                                                                                                                                                 1       0 100.00%         8       0 100.00%
+BSTMap::erase(std::string const&)                                                                                                                                                   1       0 100.00%         5       0 100.00%
+BSTMap::getAll(std::string const&) const                                                                                                                                            1       0 100.00%         5       0 100.00%
+BSTMap::operator==(BSTMap const&) const                                                                                                                                             1       0 100.00%         3       0 100.00%
+BSTMap::operator!=(BSTMap const&) const                                                                                                                                             1       0 100.00%         3       0 100.00%
+BSTMap::getHeight(BSTMap::Node const*)                                                                                                                                             11       0 100.00%        14       0 100.00%
+BSTMap::createNode(std::pair<std::string, unsigned long> const&)                                                                                                                    1       0 100.00%         7       0 100.00%
+BSTMap::copyTreeHelper(BSTMap::Node*)                                                                                                                                               5       0 100.00%         9       0 100.00%
+BSTMap::createTree(std::vector<std::pair<std::string, unsigned long>, std::allocator<std::pair<std::string, unsigned long> > > const&, int const&, int const&)                      4       0 100.00%        10       0 100.00%
+BSTMap::deleteTree(BSTMap::Node*)                                                                                                                                                   3       0 100.00%         7       0 100.00%
+BSTMap::sizeHelper(BSTMap::Node*) const                                                                                                                                             4       0 100.00%         6       0 100.00%
+BSTMap::containsHelper(BSTMap::Node*, std::string const&) const                                                                                                                    10       0 100.00%        12       0 100.00%
+BSTMap::search(BSTMap::Node*, std::string const&) const                                                                                                                             8       0 100.00%         9       0 100.00%
+BSTMap::insert(std::pair<std::string, unsigned long> const&)                                                                                                                        4       0 100.00%         8       0 100.00%
+BSTMap::recursiveInsert(BSTMap::Node*, std::pair<std::string, unsigned long> const&)                                                                                               13       0 100.00%        20       0 100.00%
+BSTMap::inorderHelper(BSTMap::Node*, void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                  4       0 100.00%         8       0 100.00%
+BSTMap::preorderHelper(BSTMap::Node*, void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                 4       0 100.00%         8       0 100.00%
+BSTMap::postorderHelper(BSTMap::Node*, void (*)(std::pair<std::string, unsigned long> const&)) const                                                                                4       0 100.00%         8       0 100.00%
+BSTMap::saveToVector(BSTMap::Node*, std::vector<std::pair<std::string, unsigned long>, std::allocator<std::pair<std::string, unsigned long> > >&)                                   4       0 100.00%         8       0 100.00%
+BSTMap::eraseHelper(BSTMap::Node*, bool&, std::string const&)                                                                                                                      17       0 100.00%        29       0 100.00%
+BSTMap::minValNode(BSTMap::Node*)                                                                                                                                                   3       0 100.00%         7       0 100.00%
+BSTMap::getAllHelper(std::vector<std::pair<std::string, unsigned long>, std::allocator<std::pair<std::string, unsigned long> > >&, BSTMap::Node*, std::string const&) const        10       0 100.00%        16       0 100.00%
+BSTMap::isMatchingTree(BSTMap::Node*, BSTMap::Node*) const                                                                                                                         13       0 100.00%        13       0 100.00%
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                             150       0 100.00%       267       0 100.00%
+
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/bstmapprinter.cpp':
+Name                                                                                                                                                                          Regions    Miss   Cover     Lines    Miss   Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+operator<<(std::ostream&, BSTMap::Node const&)                                                                                                                                      1       0 100.00%         4       0 100.00%
+operator<<(std::ostream&, BSTMap const&)                                                                                                                                            1       0 100.00%         6       0 100.00%
+BSTMap::printSideways(std::ostream&, BSTMap::Node const*, int)                                                                                                                      4       0 100.00%        12       0 100.00%
+BSTMap::centeredPrint(std::ostream&, int, std::string const&, char)                                                                                                                 4       4   0.00%        11      11   0.00%
+BSTMap::printTreeLevel(std::ostream&, std::queue<BSTMap::Node const*, std::deque<BSTMap::Node const*, std::allocator<BSTMap::Node const*> > >&, int, int, int)                     10      10   0.00%        34      34   0.00%
+BSTMap::printVertical(std::ostream&, BSTMap::Node*)                                                                                                                                 7       7   0.00%        14      14   0.00%
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                              27      21  22.22%        81      59  27.16%
+
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/main.cpp':
+Name                                                                                                                                                                          Regions    Miss   Cover     Lines    Miss   Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+testMain()                                                                                                                                                                          1       0 100.00%         4       0 100.00%
+main                                                                                                                                                                                5       2  60.00%        15       9  40.00%
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                               6       2  66.67%        19       9  52.63%
+
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/testac.cpp':
+Name                                                                                                                                                                          Regions    Miss   Cover     Lines    Miss   Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+testAC01()                                                                                                                                                                          1       0 100.00%        13       0 100.00%
+testAC02()                                                                                                                                                                          1       0 100.00%        13       0 100.00%
+testAC03()                                                                                                                                                                          1       0 100.00%        13       0 100.00%
+testAC04()                                                                                                                                                                          1       0 100.00%        19       0 100.00%
+testACAll()                                                                                                                                                                         1       0 100.00%         6       0 100.00%
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                               5       0 100.00%        64       0 100.00%
+
+File '/home/NETID/olhak/2021wi343b-autocomplete-olga-kuriatnyk/testbst.cpp':
+Name                                                                                                                                                                          Regions    Miss   Cover     Lines    Miss   Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+printer(std::pair<std::string, unsigned long> const&)                                                                                                                               1       0 100.00%         3       0 100.00%
+test01()                                                                                                                                                                            1       0 100.00%        21       0 100.00%
+test02()                                                                                                                                                                            1       0 100.00%        24       0 100.00%
+test03()                                                                                                                                                                            1       0 100.00%        19       0 100.00%
+test04()                                                                                                                                                                            1       0 100.00%        21       0 100.00%
+test05()                                                                                                                                                                            1       0 100.00%        22       0 100.00%
+test06()                                                                                                                                                                            1       0 100.00%        16       0 100.00%
+test07()                                                                                                                                                                            1       0 100.00%        30       0 100.00%
+test08()                                                                                                                                                                            1       0 100.00%        18       0 100.00%
+testBSTAll()                                                                                                                                                                        1       0 100.00%        10       0 100.00%
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                              10       0 100.00%       184       0 100.00%
+=====================================================
+The lines below were never executed
+=====================================================
+   48|      0|                               char fillChar) {
+   49|      0|  auto strL = static_cast<int>(str.length());
+   50|      0|  int extra = (space - strL) / 2;
+   51|      0|  if (extra > 0) {
+   52|      0|    out << setfill(fillChar) << setw(extra + strL) << str;
+   53|      0|    out << setfill(fillChar) << setw(space - extra - strL) << fillChar;
+   54|      0|  } else {
+   55|      0|    out << setfill(fillChar) << setw(space) << str;
+   56|      0|  }
+   57|      0|  return out;
+   58|      0|}
+   69|      0|                                int depth, int maxDepth) {
+   70|      0|  const static char space = ' ';
+   71|      0|  const static char underline = '_';
+   72|      0|  int nodes = 0;
+   73|      0|  int maxN = pow(2, depth - 1);
+   74|      0|  auto spaceForEachItem = static_cast<int>(width * pow(2, maxDepth - 1) / maxN);
+   75|      0|  string bigspace = string(static_cast<uint64_t>(spaceForEachItem / 4), space);
+   76|      0|  while (nodes++ < maxN) {
+   77|      0|    const Node *tp = q.front();
+   78|      0|    Node *tpl = nullptr;
+   79|      0|    Node *tpr = nullptr;
+   80|      0|    q.pop();
+   81|      0|    string label = "N";
+   82|      0|    if (tp != nullptr) {
+   83|      0|      stringstream ss;
+   84|      0|      ss << *tp;
+   85|      0|      label = ss.str();
+   86|      0|      tpl = tp->left;
+   87|      0|      tpr = tp->right;
+   88|      0|    }
+   89|      0|    char filler = depth == maxDepth ? space : underline;
+   90|      0|    if (depth == maxDepth) {
+   91|      0|      centeredPrint(out, spaceForEachItem, label, filler);
+   92|      0|    } else {
+   93|      0|      out << bigspace;
+   94|      0|      centeredPrint(out, spaceForEachItem / 2, label, filler);
+   95|      0|      out << bigspace;
+   96|      0|      q.push(tpl);
+   97|      0|      q.push(tpr);
+   98|      0|    }
+   99|      0|  }
+  100|      0|  out << endl;
+  101|      0|  return out;
+  102|      0|}
+  105|      0|ostream &BSTMap::printVertical(ostream &out, Node *curr) {
+  106|      0|  const static int width = 6; // must be even
+  107|      0|  if (curr == nullptr) {
+  108|      0|    return out << "[__]";
+  109|      0|  }
+  110|      0|  // figure out the maximum depth which determines how wide the tree is
+  111|      0|  int maxDepth = getHeight(curr);
+  112|      0|  queue<const Node *> q;
+  113|      0|  q.push(curr);
+  114|      0|  for (int depth = 1; depth <= maxDepth; ++depth) {
+  115|      0|    printTreeLevel(out, q, width, depth, maxDepth);
+  116|      0|  }
+  117|      0|  return out;
+  118|      0|}
+   19|      0|    Autocomplete ac;
+   20|      0|    string filename = argv[1];
+   21|      0|    string prefix = argv[2];
+   22|      0|    ac.readFile(filename);
+   23|      0|    auto results = ac.complete(prefix);
+   24|      0|    for (auto &p : results) {
+   25|      0|      cout << p.first << "\t" << p.second << endl;
+   26|      0|    }
+Mon Jan 25 22:21:03 PST 2021
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================
